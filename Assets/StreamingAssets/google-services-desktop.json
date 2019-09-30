@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "925009768131",
+    "firebase_url": "https://arnavigation-dd351.firebaseio.com",
+    "project_id": "arnavigation-dd351",
+    "storage_bucket": "arnavigation-dd351.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925009768131:android:d3e7951c669ee041b1bc76",
+        "android_client_info": {
+          "package_name": "com.gvstudio.ARNavigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925009768131-4vpte9lv33nj0bj54ltnvvu4172ji9gb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIOqVhlu-WR4s3QMAj6CDFRXfh5t3qaj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "925009768131-4vpte9lv33nj0bj54ltnvvu4172ji9gb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
