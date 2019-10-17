@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\compass.cs" />
+    <Compile Include="Assets\Script\firebase.cs" />
     <Compile Include="Assets\Script\GPS.cs" />
     <Compile Include="Assets\Script\TestDatabase.cs" />
     <Compile Include="Assets\Script\UpdateGPSLocation.cs" />
@@ -71,22 +72,22 @@
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -269,43 +270,43 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.12f1/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Analytics">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.App">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Auth">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Database">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Platform">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.TaskExtension">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
     </Reference>
     <Reference Include="Google.MiniJson">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
     </Reference>
     <Reference Include="Google.Sharpen">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Compat">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Tasks">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/HHE/Documents/ARNavigation/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/HHE/Documents/GitHub/ARNavigation/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

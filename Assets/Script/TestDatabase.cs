@@ -12,9 +12,9 @@ public class TestDatabase : MonoBehaviour
     {
         // Set this before calling into the realtime database.
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://arnavigation-dd351.firebaseio.com/");
-        //FirebaseApp.DefaultInstance.SetEditorP12FileName("demofirebase2-90fc700519ad.p12");
-        //FirebaseApp.DefaultInstance.SetEditorServiceAccountEmail("demofirebase2-63523422@appspot.gserviceaccount.com");
-        //FirebaseApp.DefaultInstance.SetEditorP12Password("notasecret");
+        FirebaseApp.DefaultInstance.SetEditorP12FileName("arnavigation-dd351-cb839474d203.p12");
+        FirebaseApp.DefaultInstance.SetEditorServiceAccountEmail("firebase-adminsdk-vat2r@arnavigation-dd351.iam.gserviceaccount.com");
+        FirebaseApp.DefaultInstance.SetEditorP12Password("notasecret");
     }
 
     public void OnClickSave()
