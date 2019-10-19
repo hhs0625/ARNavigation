@@ -65,6 +65,7 @@
     <Compile Include="Assets\Script\compass.cs" />
     <Compile Include="Assets\Script\firebase.cs" />
     <Compile Include="Assets\Script\GPS.cs" />
+    <Compile Include="Assets\Script\kopis.cs" />
     <Compile Include="Assets\Script\TestDatabase.cs" />
     <Compile Include="Assets\Script\UpdateGPSLocation.cs" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
