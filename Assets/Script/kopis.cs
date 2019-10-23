@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using System.Net;
 using System;
 using System.Text;
+using UnityEngine.Networking;
 
 public class Show
 {
@@ -47,7 +48,8 @@ public class kopis : MonoBehaviour
     private static String getFmtDate = "yyyy.MM.dd";
 
     public List<Show> showList = new List<Show>();
-
+    public List<RawImage> posterList = new List<RawImage>();
+    public List<Texture> tList = new List<Texture>();
     //Use this for initialization
     void Start () {
         //string url = "http://www.kopis.or.kr/openApi/restful/pblprfr?service=fbd78a24798d46d38b156cf982339d7b&stdate=20191008&shprfnmfct=%EC%98%88%EC%88%A0%EC%9D%98%EC%A0%84%EB%8B%B9&eddate=20191008&rows=10&cpage=1";
@@ -171,57 +173,38 @@ public class kopis : MonoBehaviour
             string openrun = xn["openrun"].InnerText;
             Show show = new Show(ID, name, DateTime.ParseExact(stDate, getFmtDate, null), DateTime.ParseExact(edDate, getFmtDate, null), poster, genre);
             showList.Add(show);
-
-            Debug.Log(name + " : " + stDate);
+       
+ 
             //string lat = xn["point"]["x"].InnerText;
             //string lng = xn["point"]["y"].InnerText;
         }
+        dpShow();
+
     }
 
-    public void testKopis()
+    public void dpShow()
     {
-        string url = "http://www.kopis.or.kr/openApi/restful/pblprfr?service=fbd78a24798d46d38b156cf982339d7b&stdate=20191008&shprfnmfct=%EC%98%88%EC%88%A0%EC%9D%98%EC%A0%84%EB%8B%B9&eddate=20191008&rows=10&cpage=1";
-        string responseText = string.Empty;
-
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        request.Method = "GET";
-        request.Timeout = 30 * 1000; // 30초
-        request.Headers.Add("Authorization", "BASIC SGVsbG8="); // 헤더 추가 방법
-
-        using (HttpWebResponse resp = (HttpWebResponse)request.GetResponse())
+        int idx = 0;
+        foreach (Show s in showList)
         {
-            HttpStatusCode status = resp.StatusCode;
-            Console.WriteLine(status);  // 정상이면 "OK"
-
-            Stream respStream = resp.GetResponseStream();
-            using (StreamReader sr = new StreamReader(respStream))
-            {
-                responseText = sr.ReadToEnd();
-            }
-        }
-        Debug.Log("len : "+responseText.Length);
-
-        XmlDocument xml = new XmlDocument(); // XmlDocument 생성
-        xml.LoadXml(responseText);
-
-        XmlNodeList xnList = xml.GetElementsByTagName("db"); //접근할 노드
-
-        foreach (XmlNode xn in xnList)
-        {
-            string mt20id = xn["mt20id"].InnerText;
-            string prfnm = xn["prfnm"].InnerText;
-            string prfpdfrom = xn["prfpdfrom"].InnerText;
-            string prfpdto = xn["prfpdto"].InnerText;
-            string fcltynm = xn["fcltynm"].InnerText;
-            string poster = xn["poster"].InnerText;
-            string genrenm = xn["genrenm"].InnerText;
-            string prfstate = xn["prfstate"].InnerText;
-            string openrun = xn["openrun"].InnerText;
-            Debug.Log(prfnm + " : " + prfpdfrom);
-            //string lat = xn["point"]["x"].InnerText;
-            //string lng = xn["point"]["y"].InnerText;
+            Debug.Log(idx + " " + s.name + " : " + s.stDate);
+            Debug.Log("---->" + s.poster);
+            StartCoroutine(setDetails(idx, s)); //balanced parens CAS
+            idx++;
         }
     }
 
+    IEnumerator setDetails(int _idx, Show _s)
+    {
+        //Texture2D texture = posterList[_idx].canvasRenderer.GetMaterial().mainTexture as Texture2D;
+        //Texture2D texture = posterList[_idx].canvasRenderer.GetMaterial().mainTexture as Texture2D;
+
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture("https://t1.daumcdn.net/cfile/tistory/2673C03C58FB789A02");
+        yield return www.SendWebRequest();
+        //posterList[_idx].texture = www.texture;
+        tList[_idx] = DownloadHandlerTexture.GetContent(www);
+        www.Dispose();
+        www = null;
+    }
 
 }
