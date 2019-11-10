@@ -220,29 +220,11 @@ public class kopis : MonoBehaviour
             Debug.Log(idx + " " + s.name + " : " + s.stDate);
             Debug.Log("---->" + s.poster);
             StartCoroutine(setDetails(idx, s)); //balanced parens CAS
-            //StartCoroutine(DownloadFile(idx, s)); //balanced parens CAS
+
             idx++;
         }
     }
 
-    IEnumerator DownloadFile(int _idx, Show _s)
-    {
-        string fName = _idx + ".gif";
-        
-        var uwr = new UnityWebRequest(_s.poster, UnityWebRequest.kHttpVerbGET);
-        string path = Path.Combine(Application.persistentDataPath, fName);
-        uwr.downloadHandler = new DownloadHandlerFile(path);
-        yield return uwr.SendWebRequest();
-        if (uwr.isNetworkError || uwr.isHttpError)
-            Debug.LogError(uwr.error);
-        else
-            Debug.Log("File successfully downloaded and saved to " + path);
-
-        //tList[_idx] = Resources.Load(Application.persistentDataPath +"/"+fName, typeof(Texture)) as Texture;  // 이미지 로드
-        //posterList[_idx].texture = tList[_idx];
-
-        Debug.Log("File successfully loaded from " + Application.persistentDataPath + "/" + fName);
-    }
 
     IEnumerator setDetails(int _idx, Show _s)
     {

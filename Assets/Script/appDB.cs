@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class appDB : MonoBehaviour
 {
@@ -74,7 +76,8 @@ public class appDB : MonoBehaviour
                 break;
             case 3:
                 Debug.Log("access kopis : " + fbDB.ftyList[fbDB.nearFtyIdx].name + " - " + DateTime.Today);
-                kopisDB.getFtyShows(fbDB.ftyList[fbDB.nearFtyIdx].name, DateTime.Today, DateTime.Today);
+                //kopisDB.getFtyShows(fbDB.ftyList[fbDB.nearFtyIdx].name, DateTime.Today, DateTime.Today);
+                kopisDB.getFtyShows(fbDB.ftyList[fbDB.nearFtyIdx].name, DateTime.Today, DateTime.Now.AddDays(30));
                 stepSyncDB++;
                 break;
             case 4:
@@ -92,6 +95,10 @@ public class appDB : MonoBehaviour
             case 5:
                 if(findShowLocation()) Debug.Log("findShowLocation success");
                 else Debug.Log("findShowLocation fail");
+                stepSyncDB++;
+                break;
+            case 6:
+                downloadPoster();
                 stepSyncDB++;
                 break;
             default:
@@ -146,8 +153,18 @@ public class appDB : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void downloadPoster()
+    {
+        foreach (Show s in kopisDB.showList)
+        {
+            string ext = s.poster;
+            StartCoroutine(DownloadFile(s.ID + ext.Substring(s.poster.Length - 4, 4), s.poster));
+        }
 
     }
+
     private bool findCurFty()
     {
         
@@ -174,4 +191,17 @@ public class appDB : MonoBehaviour
         else return false;
     }
 
+    IEnumerator DownloadFile(string _fileName, string _poster)
+    {
+
+        var uwr = new UnityWebRequest(_poster, UnityWebRequest.kHttpVerbGET);
+        string path = Path.Combine(Application.persistentDataPath, _fileName);
+        uwr.downloadHandler = new DownloadHandlerFile(path);
+        yield return uwr.SendWebRequest();
+        if (uwr.isNetworkError || uwr.isHttpError)
+            Debug.LogError(uwr.error);
+        else
+            Debug.Log("File successfully downloaded and saved to " + path);
+
+    }
 }
