@@ -55,18 +55,20 @@ public class Theater
     public double longitude;
     public double dist;
     public string pic;
+    public string keyName;
 
     public Theater()
     {
 
     }
 
-    public Theater(string _ID, string _name, double _latitude, double _longitude)
+    public Theater(string _ID, string _name, double _latitude, double _longitude, string _keyName)
     {
         this.ID = _ID;
         this.name = _ID;
         this.latitude = _latitude;
         this.longitude = _longitude;
+        this.keyName = _keyName;
     }
 }
 
@@ -74,35 +76,22 @@ public class Theater
 public class firebase : MonoBehaviour
 {
 
-    private static firebase _instance = null;
-
-    public static firebase Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType(typeof(firebase)) as firebase;
-
-                if (_instance == null)
-                {
-                    Debug.LogError("There's no active ManagerClass object");
-                }
-            }
-
-            return _instance;
-        }
-    }
-
-
     DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
     DatabaseReference mDatabaseRef;
     public int DBversion;
     public List<Facility> ftyList = new List<Facility>();
     public int nearFtyIdx = -1;
+    public int dbSt = 0;
+
     // Use this for initialization
     void Start()
     {
+
+    }
+
+    public void getFirebaseDB()
+    {
+        Debug.Log("Try connect firebase");
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
             dependencyStatus = task.Result;
             if (dependencyStatus == DependencyStatus.Available)
@@ -118,13 +107,15 @@ public class firebase : MonoBehaviour
                 {
                     // 에러 처리/로깅 등
                     Debug.Log(ex);
+                    dbSt = -1;
                     throw;
                 }
-                    
+       
             }
             else
             {
                 Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
+                dbSt = -1;
             }
         });
 
@@ -164,10 +155,12 @@ public class firebase : MonoBehaviour
     void loadFacility()
     {
         ftyList.Clear();
+        Debug.Log("loadFacility");
         FirebaseDatabase.DefaultInstance.GetReference("facility").GetValueAsync().ContinueWith(task => {
             if (task.IsFaulted)
             {
                 Debug.Log("failed");
+                dbSt = -1;
             }
             else if (task.IsCompleted)
             {
@@ -190,13 +183,15 @@ public class firebase : MonoBehaviour
                         string tName = _childSnapshot.Child("name").Value.ToString();
                         string tLat = _childSnapshot.Child("latitude").Value.ToString();
                         string tLong = _childSnapshot.Child("longitude").Value.ToString();
+                        string tKeyName = _childSnapshot.Child("keyName").Value.ToString();
                         //Debug.Log(tID + " " + tName + " " + tLat);
                         Debug.Log(tID + " " + tName + " " + tLat + " " + tLong);
-                        Theater tht = new Theater(tID, tName, double.Parse(tLat), double.Parse(tLong));
+                        Theater tht = new Theater(tID, tName, double.Parse(tLat), double.Parse(tLong), tKeyName);
                         fty.theaterList.Add(tht);
                     }
                     ftyList.Add(fty);
                 }
+                dbSt = 1;
             }
         });
     }

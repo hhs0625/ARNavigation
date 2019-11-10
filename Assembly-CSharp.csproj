@@ -62,11 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\appDB.cs" />
     <Compile Include="Assets\Script\compass.cs" />
     <Compile Include="Assets\Script\firebase.cs" />
     <Compile Include="Assets\Script\gps.cs" />
     <Compile Include="Assets\Script\kopis.cs" />
-    <Compile Include="Assets\Script\TestDatabase.cs" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-analytics-unity\maven-metadata.xml" />
